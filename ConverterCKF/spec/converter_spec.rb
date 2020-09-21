@@ -29,5 +29,4 @@ Rspec.describe ConverterCKF do
       expect(ConverterCKF.convert(210, 'K', 'F')).to eq - 81
     end
   end
-
 end
