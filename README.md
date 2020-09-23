@@ -9,6 +9,7 @@ bundle install
 ## Run test
 
 ```bash
+cd "NameOfLab"/ 
 rspec
 ```
 
