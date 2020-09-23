@@ -3,19 +3,40 @@
 # class to convert C, F, K in degrees
 class ConverterCKF
   def self.convert(value, from, to)
-    if from == 'C' && to == 'F' then (value * 9 / 5) + 32
+    case from
+    when 'C'
+      convert_from_c(value, to)
+    when 'k'
+      convert_from_k(value, to)
+    when 'F'
+      convert_from_f(value, to)
+    end
+  end
 
-    elsif from == 'C' && to == 'K' then value + 273
+  def self.convert_from_c(value, to)
+    case to
+    when 'F'
+      (value * 9 / 5) + 32
+    when 'K'
+      value + 273
+    end
+  end
 
-    elsif from == 'F' && to == 'C' then (value - 32) * 5 / 9
+  def self.convert_from_k(value, to)
+    case to
+    when 'C'
+      value - 273
+    when 'F'
+      (value * 9 / 5) - 459
+    end
+  end
 
-    elsif from == 'F' && to == 'K' then value + 459 * 5 / 9
-
-    elsif from == 'K' && to == 'C' then value - 273
-
-    elsif from == 'K' && to == 'F' then (value * 9 / 5) - 459
-
-    else puts 'incorrect data'
+  def self.convert_from_f(value, to)
+    case to
+    when 'C'
+      (value - 32) * 5 / 9
+    when 'K'
+      value + 459 * 5 / 9
     end
   end
 
