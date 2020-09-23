@@ -6,7 +6,7 @@ class ConverterCKF
     case from
     when 'C'
       convert_from_c(value, to)
-    when 'k'
+    when 'K'
       convert_from_k(value, to)
     when 'F'
       convert_from_f(value, to)
