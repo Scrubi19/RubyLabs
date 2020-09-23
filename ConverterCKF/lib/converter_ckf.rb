@@ -19,13 +19,13 @@ class ConverterCKF
     else puts 'incorrect data'
     end
   end
+
+  def self.number_reader
+    numbers = gets.chomp
+    if numbers.to_f.to_i.to_s == numbers
+      numbers.to_i
+    else
+      -1
+    end
+  end
 end
-
-puts 'Enter value for degrees'
-value = gets.chomp.to_i
-puts 'Enter from what to convert(C, F, K)'
-from = gets.chomp
-puts 'Enter where to convert(C, F, K)'
-to = gets.chomp
-
-puts 'Result', ConverterCKF.convert(value, from, to)

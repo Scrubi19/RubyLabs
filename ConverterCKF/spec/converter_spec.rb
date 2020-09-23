@@ -3,7 +3,7 @@
 require 'rspec'
 require_relative '../lib/converter_ckf'
 
-Rspec.describe ConverterCKF do
+RSpec.describe ConverterCKF do
   describe 'converter_check' do
     it 'From C to F' do
       expect(ConverterCKF.convert(10, 'C', 'F')).to eq 50
@@ -14,7 +14,7 @@ Rspec.describe ConverterCKF do
     end
 
     it 'From F to C' do
-      expect(ConverterCKF.convert(10, 'F', 'C')).to eq - 13
+      expect(ConverterCKF.convert(10, 'F', 'C')).to eq(-13)
     end
 
     it 'From F to K' do
@@ -22,11 +22,11 @@ Rspec.describe ConverterCKF do
     end
 
     it 'From K to C' do
-      expect(ConverterCKF.convert(10, 'K', 'C')).to eq - 263
+      expect(ConverterCKF.convert(10, 'K', 'C')).to eq(-263)
     end
 
     it 'From K to F' do
-      expect(ConverterCKF.convert(210, 'K', 'F')).to eq - 81
+      expect(ConverterCKF.convert(210, 'K', 'F')).to eq(-81)
     end
   end
 end
