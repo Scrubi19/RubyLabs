@@ -9,8 +9,7 @@ bundle install
 ## Run test
 
 ```bash
-cd "NameOfLab"/ 
-rspec
+cd "NameOfLab"/ && rspec
 ```
 
 ## Run rubocop
