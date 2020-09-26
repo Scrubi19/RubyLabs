@@ -18,4 +18,4 @@ jobs:
       - name: Rubocop
         run: bundle exec rubocop
       - name: RSpec laba 1
-        run: cd ConverterCKF/ && rspec
+        run: cd ConverterCKF/ && bundle exec rspec
