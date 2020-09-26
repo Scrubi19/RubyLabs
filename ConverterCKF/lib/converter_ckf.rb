@@ -40,12 +40,4 @@ class ConverterCKF
     end
   end
 
-  def self.number_reader
-    numbers = gets.chomp
-    if numbers.to_f.to_i.to_s == numbers
-      numbers.to_i
-    else
-      -1
-    end
-  end
 end
