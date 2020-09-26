@@ -20,9 +20,9 @@
 #   def min
 
 #   end
-  
+
 #   def mean
 
 #   end
 
-end
+# end
