@@ -1,9 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '2.7.1'
-
-gem 'colorize'
-gem 'csv'
-gem 'rails'
-gem 'rspec'
-gem 'rubocop'
+group :development, :test do
+  gem 'byebug'
+  gem 'rspec'
+  gem 'rubocop'
+  gem 'simplecov'
+end
