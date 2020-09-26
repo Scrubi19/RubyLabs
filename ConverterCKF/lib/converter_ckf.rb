@@ -39,5 +39,4 @@ class ConverterCKF
       value + 459 * 5 / 9
     end
   end
-
 end

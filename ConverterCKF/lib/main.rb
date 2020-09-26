@@ -3,7 +3,6 @@
 require_relative 'converter_ckf'
 
 class Main
-
   def self.number_reader
     numbers = gets.chomp
     if numbers.to_f.to_i.to_s == numbers

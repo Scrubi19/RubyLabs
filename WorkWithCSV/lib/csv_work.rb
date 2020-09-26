@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
-require 'csv'
+# require 'csv'
 
-class CSVcalc
+# class CSVcalc
 
-  def init_file(path)
-    @file = path
-    @source =  CSV.read(path)
+#   def init_file(path)
+#     @file = path
+#     @source =  CSV.read(path)
 
-    @cols = source[0].length - 1
-    @rows = source.length - 1
+#     @cols = source[0].length - 1
+#     @rows = source.length - 1
 
-  end
+#   end
 
 #   def max
 
