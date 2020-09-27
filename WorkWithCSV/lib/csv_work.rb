@@ -23,7 +23,7 @@ class CSVcalc
         end
       end
     end
-   
+
     result_string
   end
 
