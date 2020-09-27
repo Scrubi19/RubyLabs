@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require 'rspec'
 require_relative '../lib/converter_ckf'
+require 'rspec'
 
 RSpec.describe ConverterCKF do
   describe 'converter_check' do
