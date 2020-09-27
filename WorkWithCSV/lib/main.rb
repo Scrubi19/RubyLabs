@@ -4,7 +4,7 @@ require_relative 'csv_work'
 
 class Main
   def self.init_file
-    puts 'Enter file name:'
+    puts 'Enter file name (.csv):'
     filepath = gets.chomp
     CSVcalc.new(filepath)
   end
