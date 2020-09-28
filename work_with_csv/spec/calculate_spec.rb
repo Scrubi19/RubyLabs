@@ -5,7 +5,7 @@ require_relative '../lib/csv_work'
 
 RSpec.describe CSVcalc do
   describe '.csv calculate' do
-    data = CSVcalc.new('spec/test.csv')
+    let(:data) { CSVcalc.new('spec/test.csv') }
     context 'Search min' do
       it { expect(data.csv_min[0]).to eq 'Крымский федеральный округ' }
     end
@@ -19,7 +19,7 @@ RSpec.describe CSVcalc do
     end
 
     context 'Calculate correct sample variance' do
-      it { expect(data.csv_correct_sample_variance).to eq 1545.8333333333333 }
+      it { expect(data.csv_correct_sample_variance).to eq 5336.333333333333 }
     end
   end
 end
