@@ -15,8 +15,10 @@ jobs:
         run: |
           gem install bundler
           bundle install --jobs 4 --retry 3
-      - name: Rubocop
-        run: bundle exec rubocop
+      - name: Rubocop lab1
+        run: cd converter_ckf/ && bundle exec rubocop
+      - name: Rubocop lab2
+        run: cd work_with_csv/ && bundle exec rubocop
       - name: RSpec laba 1
         run: cd converter_ckf/ && bundle exec rspec
       - name: RSpec laba 2
