@@ -9,23 +9,23 @@ class Main
     CSVcalc.new(filepath)
   end
 
+  def self.ch_cols(data, cols)
+    count = 1
+    (1..cols).each do |i|
+      puts "#{count}"'. '"#{(data[0][i])}"
+      count += 1
+    end
+    gets.chomp.to_i
+  end
+
   def self.start
     csv_data = init_file
-    puts '1. Min'
-    puts '2. Max'
-    puts '3. Mean'
-    puts '4. Corrected sample variance'
-    choice = gets.chomp.to_i
-    case choice
-    when 1
-      puts csv_data.csv_min
-    when 2
-      puts csv_data.csv_max
-    when 3
-      puts csv_data.csv_calculate_mean
-    when 4
-      puts csv_data.csv_correct_sample_variance
-    end
+    puts 'Enter cols for calculate'
+    col = ch_cols(csv_data.data, csv_data.cols)
+    puts 'min = '"#{csv_data.csv_min(col)}"
+    puts 'max = '"#{csv_data.csv_max(col)}"
+    puts 'mean = '"#{csv_data.csv_mean(col)}"
+    puts 'simple_variance = '"#{csv_data.sample_variance(col)}"
   end
 end
 

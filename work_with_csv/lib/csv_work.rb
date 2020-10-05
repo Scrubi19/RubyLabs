@@ -3,6 +3,8 @@
 require 'csv'
 
 class CSVcalc
+  attr_accessor :data, :cols
+
   def initialize(path)
     @file = path
     @data = CSV.read(path)
@@ -11,52 +13,34 @@ class CSVcalc
     @mean = 0.0
   end
 
-  def csv_max
-    max = 0.0
-    result_string = ''
-
-    (2..@cols).each do |j|
-      (1..@rows).each do |i|
-        if max < @data[i][j].to_f
-          max = @data[i][j].to_f
-          result_string = @data[i]
-        end
-      end
+  def csv_min(column)
+    min = @data[2][column].to_f
+    (1..@rows).each do |i|
+      min = @data[i][column].to_f if min > @data[i][column].to_f
     end
-
-    result_string
+    min
   end
 
-  def csv_min
-    min = @data[2][2].to_f
-    result_string = ''
-    (2..@cols).each do |j|
-      (1..@rows).each do |i|
-        if min > @data[i][j].to_f
-          min = @data[i][j].to_f
-          result_string = @data[i]
-        end
-      end
+  def csv_max(column)
+    max = 0.0
+    (1..@rows).each do |i|
+      max = @data[i][column].to_f if max < @data[i][column].to_f
     end
-    result_string
+    max
   end
 
-  def csv_calculate_mean
+  def csv_mean(column)
     max = 0.0
-    (2..@cols).each do |j|
-      (1..@rows).each do |i|
-        max += @data[i][j].to_f
-      end
+    (1..@rows).each do |i|
+      max += @data[i][column].to_f
     end
     @mean = max / @rows
   end
 
-  def csv_correct_sample_variance
+  def sample_variance(column)
     sum = 0.0
-    (2..@cols).each do |j|
-      (1..@rows).each do |i|
-        sum += (@data[i][j].to_f - @mean)**2.to_f
-      end
+    (1..@rows).each do |i|
+      sum += (@data[i][column].to_f - @mean)**2.to_f
     end
     average = sum / @rows
     (average * (@rows + 1)) / @rows
