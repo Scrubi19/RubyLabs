@@ -11,21 +11,30 @@ class Main
 
   def self.ch_cols(data, cols)
     count = 1
-    (1..cols).each do |i|
+    (0..cols).each do |i|
       puts "#{count}"'. '"#{(data[0][i])}"
       count += 1
     end
     gets.chomp.to_i
   end
 
+  def self.prepare_data(csv, cols)
+    buffer = []
+    (1..csv.rows).each do |i|
+      buffer[i - 1] = csv.data[i][cols].to_f
+    end
+    buffer
+  end
+
   def self.start
-    csv_data = init_file
+    csv = init_file
     puts 'Enter cols for calculate'
-    col = ch_cols(csv_data.data, csv_data.cols)
-    puts 'min = '"#{csv_data.csv_min(col)}"
-    puts 'max = '"#{csv_data.csv_max(col)}"
-    puts 'mean = '"#{csv_data.csv_mean(col)}"
-    puts 'simple_variance = '"#{csv_data.sample_variance(col)}"
+    col = ch_cols(csv.data, csv.cols) - 1
+    array = prepare_data(csv, col)
+    puts 'min = '"#{csv.min(array)}"
+    puts 'max = '"#{csv.max(array)}"
+    puts 'mean = '"#{csv.mean(array)}"
+    puts 'sample_variance'"#{csv.sample_variance(array)}"
   end
 end
 

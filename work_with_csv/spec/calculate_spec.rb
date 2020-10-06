@@ -5,21 +5,22 @@ require_relative '../lib/csv_work'
 
 RSpec.describe CSVcalc do
   describe '.csv calculate' do
-    let(:data) { CSVcalc.new('spec/test.csv') }
+    let(:csv) { CSVcalc.new('spec/test.csv') }
+    array = [12, 50, 72, 89, 33, 13, -1, 0, 124]
     context 'Search min' do
-      it { expect(data.csv_min(2)).to eq 12.0 }
+      it { expect(csv.min(array)).to eq(-1) }
     end
 
     context 'Search max' do
-      it { expect(data.csv_max(2)).to eq 120.0 }
+      it { expect(csv.max(array)).to eq 124 }
     end
 
     context 'Calculate mean' do
-      it { expect(data.csv_mean(2)).to eq 57.0 }
+      it { expect(csv.mean(array)).to eq 65.33 }
     end
 
     context 'Calculate correct sample variance' do
-      it { expect(data.sample_variance(2)).to eq 5336.333333333333 }
+      it { expect(csv.sample_variance(array)).to eq 3261.89 }
     end
   end
 end

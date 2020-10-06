@@ -3,46 +3,32 @@
 require 'csv'
 
 class CSVcalc
-  attr_accessor :data, :cols
+  attr_accessor :data, :cols, :rows
 
   def initialize(path)
     @file = path
-    @data = CSV.read(path)
+    @data = CSV.parse(File.read(path))
     @cols = @data[0].length - 1
     @rows = @data.length - 1
     @mean = 0.0
   end
 
-  def csv_min(column)
-    min = @data[2][column].to_f
-    (1..@rows).each do |i|
-      min = @data[i][column].to_f if min > @data[i][column].to_f
-    end
-    min
+  def min(array)
+    array.min
   end
 
-  def csv_max(column)
-    max = 0.0
-    (1..@rows).each do |i|
-      max = @data[i][column].to_f if max < @data[i][column].to_f
-    end
-    max
+  def max(array)
+    array.max
   end
 
-  def csv_mean(column)
-    max = 0.0
-    (1..@rows).each do |i|
-      max += @data[i][column].to_f
-    end
-    @mean = max / @rows
+  def mean(array)
+    @mean = (array.inject { |sum, i| sum + i }.to_f / @rows).round(2)
   end
 
-  def sample_variance(column)
-    sum = 0.0
-    (1..@rows).each do |i|
-      sum += (@data[i][column].to_f - @mean)**2.to_f
-    end
-    average = sum / @rows
-    (average * (@rows + 1)) / @rows
+  def sample_variance(array)
+    @mean = mean(array)
+    sum = array.map { |i| (i - @mean)**2 }
+    sum = sum.reduce(:+)
+    (sum / @rows - 1).round(2)
   end
 end
