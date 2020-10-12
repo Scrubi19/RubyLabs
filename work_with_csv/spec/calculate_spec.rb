@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'rspec'
-require_relative '../lib/csv_work'
+require_relative '../lib/csv_calc'
 
 RSpec.describe CSVcalc do
   describe '.csv calculate' do

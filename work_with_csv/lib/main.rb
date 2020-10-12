@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'csv_work'
+require_relative 'csv_calc'
 
 class Main
   def self.init_file
